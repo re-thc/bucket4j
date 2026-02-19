@@ -1,0 +1,33 @@
+[[bucket4j-vertx, Bucket4j-Vertx]]
+==== Vert.x Redis client integration
+===== Dependencies
+To use ``bucket4j-vertx`` extension you need to add following dependency:
+[source, xml, subs=attributes+]
+----
+<dependency>
+    <groupId>com.bucket4j</groupId>
+    <artifactId>bucket4j_jdk17-redis-common</artifactId>
+    <version>{revnumber}</version>
+</dependency>
+<dependency>
+    <groupId>com.bucket4j</groupId>
+    <artifactId>bucket4j_jdk17-vertx</artifactId>
+    <version>{revnumber}</version>
+</dependency>
+----
+
+===== Example of bucket instantiation via VertxBasedProxyManager
+[source, java]
+----
+Redis redis = Redis.createClient(vertx, "redis://127.0.0.1:6379");
+VertxBasedProxyManager<String> proxyManager = Bucket4jVertx.casBasedBuilder(redis)
+    .keyMapper(Mapper.STRING)
+    .expirationAfterWrite(ExpirationAfterWriteStrategy.basedOnTimeForRefillingBucketUpToMax(ofSeconds(10)))
+    .build();
+...
+
+BucketConfiguration configuration = BucketConfiguration.builder()
+    .addLimit(limit -> limit.capacity(1_000).refillGreedy(1_000, ofMinutes(1)))
+    .build();
+Bucket bucket = proxyManager.getProxy(key, () -> configuration);
+----

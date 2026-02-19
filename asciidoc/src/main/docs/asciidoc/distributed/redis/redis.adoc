@@ -1,9 +1,13 @@
 [[bucket4j-redis, Bucket4j-Redis]]
 === Bucket4j-Redis
-Bucket4j provides integration with four Redis libraries:
+Bucket4j provides integration with five Redis libraries:
 [cols="1,1,1"]
 |===
 |Library | Async supported | Redis cluster supported
+
+|``Vert.x Redis client``
+| Yes
+| Yes
 
 |``Redisson``
 | Yes
@@ -29,5 +33,7 @@ include::lettuce.adoc[]
 include::redisson.adoc[]
 
 include::jedis.adoc[]
+
+include::vertx.adoc[]
 
 include::glide.adoc[]

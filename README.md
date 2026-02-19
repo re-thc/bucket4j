@@ -79,6 +79,7 @@ In addition to local in-memory buckets, the Bucket4j supports clustered usage sc
 ### Redis back-ends
 | Back-end                   |  Async supported | Redis cluster supported |                                       Documentation link                                       |
 | :---                       | :---:            |:-----------------------:|:----------------------------------------------------------------------------------------------:|
+| ```Redis/Vert.x Redis Client``` |  Yes             |           Yes           | [bucket4j-redis/Vert.x](https://bucket4j.github.io/8.16.1/toc.html#bucket4j-vertx)         |
 | ```Redis/Redisson```       |  Yes             |           Yes           |    [bucket4j-redis/Redisson](https://bucket4j.github.io/8.16.1/toc.html#bucket4j-redisson)     |
 | ```Redis/Jedis```          |  No              |           Yes           |  [bucket4j-redis/Jedis](https://bucket4j.github.io/8.16.1/toc.html#bucket4j-jedis)             |
 | ```Redis/Lettuce```        |  Yes             |           Yes           | [bucket4j-redis/Lettuce](https://bucket4j.github.io/8.16.1/toc.html#bucket4j-lettuce)          |

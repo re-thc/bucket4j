@@ -7,31 +7,26 @@
 
     <parent>
         <groupId>com.bucket4j</groupId>
-        <artifactId>bucket4j_jdk17-parent</artifactId>
+        <artifactId>bucket4j_jdk17-redis</artifactId>
         <version>8.16.1</version>
-        <relativePath>../bucket4j-parent</relativePath>
+        <relativePath>../../bucket4j-redis</relativePath>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>bucket4j_jdk17-redis</artifactId>
-    <name>bucket4j_jdk17-redis</name>
+    <artifactId>bucket4j_jdk17-vertx</artifactId>
+    <name>bucket4j_jdk17-vertx</name>
 
     <properties>
-        <modular-name>redis</modular-name>
+        <modular-name>vertx</modular-name>
     </properties>
-
-    <modules>
-        <module>bucket4j-redis-common</module>
-        <module>bucket4j-jedis</module>
-        <module>bucket4j-lettuce</module>
-        <module>bucket4j-redisson</module>
-        <module>bucket4j-vertx</module>
-        <module>bucket4j-glide</module>
-    </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.bucket4j</groupId>
             <artifactId>bucket4j_jdk17-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bucket4j</groupId>
+            <artifactId>bucket4j_jdk17-redis-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -42,10 +37,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <version>${testcontainers.version}</version>
-            <scope>test</scope>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-redis-client</artifactId>
+            <version>${vertx.redis.client.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
